@@ -17,7 +17,7 @@
 $ git clone https://github.com/samuraikun/rails-nuxt-typescript-docker-example.git && cd rails-nuxt-typescript-docker-example
 
 # Setup
-$ docker-compose run frontend yarn
+$ cd frontend && frontend yarn
 $ docker-compose run backend bin/rails db:create
 
 # Start
@@ -26,6 +26,7 @@ $ docker-compose up -d
 $ // Rails
 $ open http://localhost:8000
 $ // Nuxt
+$ cd frontend && yarn run dev
 $ open http://localhost:4000
 ```
 
