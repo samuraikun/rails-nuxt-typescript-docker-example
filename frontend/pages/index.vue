@@ -2,27 +2,42 @@
   section.container
     div
       logo
-        h1.title
-          | frontend
-        h2.subtitle
-          | My stellar Nuxt.js project
-        .links
-          a.button--green(href='https://nuxtjs.org/', target='_blank') Documentation
-          a.button--grey(href='https://github.com/nuxt/nuxt.js', target='_blank') GitHub
+      h1.title
+        | {{ greetings }}
+      h2.subtitle
+        | My stellar Nuxt.js project
+      .links
+        a.button--green(href='https://nuxtjs.org/', target='_blank') Documentation
+        a.button--grey(href='https://github.com/nuxt/nuxt.js', target='_blank') GitHub
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import axios from 'axios'
 import Logo from '~/components/Logo.vue'
 
 export default Vue.extend({
   components: {
     Logo
+  },
+
+  data() {
+    return {
+      greetings: null
+    }
+  },
+
+  async asyncData() {
+    const { data } = await axios.get(
+      'http://localhost:8000/greetings/hello'
+    )
+
+    return { greetings: data.content }
   }
 })
 </script>
 
-<style lang="scss">
+<style>
 .container {
   margin: 0 auto;
   min-height: 100vh;

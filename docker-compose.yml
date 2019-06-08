@@ -13,15 +13,16 @@ services:
       - "8000:8000"
     depends_on:
       - db
-  frontend:
-    build: ./frontend
-    user: "node"
-    volumes:
-      - ./frontend:/myapp/frontend
-      - ./frontend/node_modules:/myapp/frontend/node_modules
-      - ./frontend/yarn-cache:/usr/local/share/.cache/yarn
-    ports:
-      - "4000:4000"
-    command: "yarn run dev"
-    depends_on:
-      - backend
+  # Nuxt側は、各OS環境に左右される可能性は低いので、Docker Compose環境ではなく、ローカル環境で起動させる
+  # frontend:
+  #   build: ./frontend
+  #   user: "node"
+  #   volumes:
+  #     - ./frontend:/myapp/frontend
+  #     - ./frontend/node_modules:/myapp/frontend/node_modules
+  #     - ./frontend/yarn-cache:/usr/local/share/.cache/yarn
+  #   ports:
+  #     - "4000:4000"
+  #   command: "yarn run dev"
+  #   depends_on:
+  #     - backend

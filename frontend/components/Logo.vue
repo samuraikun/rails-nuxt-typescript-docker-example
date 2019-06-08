@@ -1,9 +1,9 @@
 <template lang="pug">
   .VueToNuxtLogo
     .Triangle.Triangle--two
-      .Triangle.Triangle--one
-        .Triangle.Triangle--three
-          .Triangle.Triangle--four 
+    .Triangle.Triangle--one
+    .Triangle.Triangle--three
+    .Triangle.Triangle--four 
 </template>
 
 <script lang="ts">
@@ -11,7 +11,7 @@ import Vue from 'vue'
 export default Vue.extend({})
 </script>
 
-<style lang="scss">
+<style>
 .VueToNuxtLogo {
   display: inline-block;
   animation: turn 2s linear forwards 1s;

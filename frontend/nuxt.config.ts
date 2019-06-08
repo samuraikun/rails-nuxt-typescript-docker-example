@@ -1,5 +1,6 @@
 import NuxtConfiguration from '@nuxt/config'
 const pkg = require('./package')
+const isDev = process.env.NODE_ENV !== "production"
 
 const nuxtConfig: NuxtConfiguration = {
   mode: 'universal',
@@ -45,7 +46,18 @@ const nuxtConfig: NuxtConfiguration = {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    // debug: isDev,
+    // proxy: true
   },
+
+  // proxy: {
+  //   "/api": {
+  //     target: "http://localhost:8000/",
+  //     pathRewrite: {
+  //       "^/api/": ""
+  //     }
+  //   }
+  // },
 
   /*
    ** Build configuration
@@ -67,8 +79,4 @@ const nuxtConfig: NuxtConfiguration = {
       }
     }
   }
-}
-
-export default {
-  
 }
