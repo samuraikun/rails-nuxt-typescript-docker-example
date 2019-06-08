@@ -22,7 +22,11 @@ $ docker-compose run backend bin/rails db:create
 
 # Start
 $ docker-compose up -d
-$ open http://localhost:3000
+
+$ // Rails
+$ open http://localhost:8000
+$ // Nuxt
+$ open http://localhost:4000
 ```
 
 ## Motivation
