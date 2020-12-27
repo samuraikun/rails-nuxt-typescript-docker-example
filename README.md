@@ -13,12 +13,21 @@
 
 ## Usage
 
+### `.env`
+
+```
+POSTGRES_USERNAME=postgres
+POSTGRES_PASSWORD=xxxxxx
+```
+
+### Run localhost
+
 ```shell
 $ git clone https://github.com/samuraikun/rails-nuxt-typescript-docker-example.git && cd rails-nuxt-typescript-docker-example
 
 # Setup
 $ docker-compose build
-$ cd frontend && frontend yarn
+$ cd frontend && yarn install
 $ docker-compose run backend bin/rails db:create
 
 # Start
