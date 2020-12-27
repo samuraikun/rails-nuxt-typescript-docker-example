@@ -3,7 +3,7 @@ services:
   db:
     image: postgres:alpine
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - psql_data:/var/lib/postgresql/data
     env_file:
       - '.env'
     ports:
@@ -13,22 +13,29 @@ services:
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 8000 -b '0.0.0.0'"
     volumes:
       - ./backend:/myapp/backend
+      - bundle_path:/backend/bundle
+    environment:
+      - BUNDLE_PATH=/backend/bundle
     env_file:
       - '.env'
     ports:
       - "8000:8000"
     depends_on:
       - db
-  # Nuxt側は、各OS環境に左右される可能性は低いので、Docker Compose環境ではなく、ローカル環境で起動させる
   # frontend:
   #   build: ./frontend
   #   user: "node"
   #   volumes:
   #     - ./frontend:/myapp/frontend
-  #     - ./frontend/node_modules:/myapp/frontend/node_modules
+  #     - node_modules:/myapp/frontend/node_modules
   #     - ./frontend/yarn-cache:/usr/local/share/.cache/yarn
   #   ports:
   #     - "4000:4000"
   #   command: "yarn run dev"
   #   depends_on:
   #     - backend
+
+volumes:
+  psql_data:
+  bundle_path:
+  # node_modules:

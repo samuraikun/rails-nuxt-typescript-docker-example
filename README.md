@@ -4,8 +4,8 @@
 
 **Here is an example application with the following modern web technology stacks. With this boilerplate, you can easily start to build your own app.**
 
-- [Ruby](https://www.ruby-lang.org/en/) 2.6.3
-- [Rails](https://rubyonrails.org/) (API mode) 6.0.0.rc1🚀
+- [Ruby](https://www.ruby-lang.org/en/) 2.7.2
+- [Rails](https://rubyonrails.org/) (API mode) 6.1.0
 - [Nuxt.js](https://nuxtjs.org/) 2.8.1
 - [TypeScript](https://www.typescriptlang.org/) 3.5.1
 - [Docker](https://docs.docker.com/)
@@ -27,6 +27,9 @@ $ git clone https://github.com/samuraikun/rails-nuxt-typescript-docker-example.g
 
 # Setup
 $ docker-compose build
+
+// Gemfileを変更した場合
+$ docker-compose run web bundle install
 $ cd frontend && yarn install
 $ docker-compose run backend bin/rails db:create
 
@@ -39,6 +42,10 @@ $ // Nuxt
 $ cd frontend && yarn run dev
 $ open http://localhost:4000
 ```
+
+#### Gemfileを変更した場合 or docker-compose up後、gemが見つからないというエラーの場合
+- `docker-compose run web bundle install` を実行
+    - https://qiita.com/hokita222/items/49f4ca54835e08fdd6b2
 
 ## Motivation
 
